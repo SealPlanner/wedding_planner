@@ -17,6 +17,7 @@ class CreateGuestsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('relations');
+            $table->foreignId('wedding_id')->constrained('weddings');
             $table->timestamps();
         });
     }
