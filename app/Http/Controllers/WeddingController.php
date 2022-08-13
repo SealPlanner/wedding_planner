@@ -14,7 +14,11 @@ class WeddingController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        // $data = Wedding::all();
+        $data = [
+            'data' => 'yoi'
+        ];
+        return response()->json($data,200);
     }
 
     /**
