@@ -18,6 +18,8 @@ class CreateWeddingsTable extends Migration
             $table->string('location');
             $table->date('date');
             $table->double('total_budget');
+            $table->unsignedBigInteger('user_id');
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

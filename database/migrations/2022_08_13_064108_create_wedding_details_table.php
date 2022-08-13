@@ -27,6 +27,8 @@ class CreateWeddingDetailsTable extends Migration
             $table->string('transportation');
             $table->string('venue');
             $table->string('souvenir');
+            $table->unsignedBigInteger('wedding_id');
+            $table->foreign('wedding_id')->references('id')->on('weddings');
             $table->timestamps();
         });
     }
