@@ -52,4 +52,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function wedding()
+    {
+        return $this->hasOne(Wedding::class);
+    }
 }

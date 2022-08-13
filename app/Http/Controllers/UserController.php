@@ -38,10 +38,7 @@ class UserController extends Controller
      */
     public function show()
     {
-        return response()->json(array_merge([
-            'success' => true,
-            'data' => auth()->user()
-        ]), Response::HTTP_OK);
+        return $this->sendResponse("Successfully get user", auth()->user());
     }
 
     /**
