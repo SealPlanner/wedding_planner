@@ -15,6 +15,7 @@ class CreateWeddingDetailsTable extends Migration
     {
         Schema::create('wedding_details', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('wedding_id')->constrained('weddings');
             $table->string('health_beauty');
             $table->string('flower_decor');
             $table->string('invitation');
