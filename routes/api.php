@@ -4,6 +4,7 @@ use App\Http\Controllers\WeddingController;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WeddingDetailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,18 @@ Route::group(['middleware' => 'api'], function () {
     });
     Route::group(['prefix' => 'wedding'],function ()
     {
-        Route::get('/getWedding', [WeddingController::class, 'index']);
+        Route::get('/getPlanner', [WeddingController::class, 'index']);
         Route::post('/savePlanner',[WeddingController::class, 'store']);
         Route::post('/updatePlan/{id}',[WeddingController::class, 'update']);
         Route::post('/deletePlan/{id}',[WeddingController::class, 'destroy']);
+
+        Route::get('/getPlanner', [WeddingController::class, 'index']);
+        Route::post('/savePlanner',[WeddingController::class, 'store']);
+        Route::post('/updatePlan/{id}',[WeddingController::class, 'update']);
+        Route::post('/deletePlan/{id}',[WeddingController::class, 'destroy']);
+
+        Route::get('/detailPlan/{d}', [WeddingController::class, 'show']);
+        Route::post('/saveDetail', [WeddingDetailController::class, 'store']);
+        Route::post('/updateDetail/{detailId}', [WeddingDetailController::class, 'update']);
     });
 });

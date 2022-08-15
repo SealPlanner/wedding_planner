@@ -62,9 +62,10 @@ class WeddingController extends Controller
      * @param  \App\Models\Wedding  $wedding
      * @return \Illuminate\Http\Response
      */
-    public function show(Wedding $wedding)
+    public function show(string $id)
     {
-        //
+        $data = Wedding::with('detail')->find($id);
+        return $this->sendResponse('Success',$data,Response::HTTP_OK);
     }
 
     /**

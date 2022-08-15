@@ -15,4 +15,8 @@ class Wedding extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function detail()
+    {
+        return $this->hasOne(WeddingDetail::class,'wedding_id','id');
+    }
 }

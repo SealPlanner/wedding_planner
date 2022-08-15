@@ -14,7 +14,7 @@ class CreateWeddingDetailsTable extends Migration
     public function up()
     {
         Schema::create('wedding_details', function (Blueprint $table) {
-            $table->id();
+            $table->id('detail_id');
             $table->double('health_beauty')->default(0);
             $table->double('flower_decor')->default(0);
             $table->double('invitation')->default(0);
@@ -28,8 +28,7 @@ class CreateWeddingDetailsTable extends Migration
             $table->double('venue')->default(0);
             $table->double('souvenir')->default(0);
             $table->unsignedBigInteger('wedding_id');
-            $table->foreign('wedding_id')->references('id')->on('weddings');
-            $table->timestamps();
+            $table->foreign('wedding_id')->references('id')->on('weddings')->onDelete('cascade');
         });
     }
 
