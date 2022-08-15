@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Wedding;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 
 class WeddingController extends Controller
 {
@@ -14,11 +16,8 @@ class WeddingController extends Controller
      */
     public function index()
     {
-        // $data = Wedding::all();
-        $data = [
-            'data' => 'yoi'
-        ];
-        return response()->json($data,200);
+        $data = Wedding::get();
+        return $this->sendResponse('Success',$data,Response::HTTP_OK);
     }
 
     /**
@@ -39,7 +38,22 @@ class WeddingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'location' => 'required',
+            'date' => 'required',
+            'total_budget' => 'required',
+            'user_id' => 'required'
+        ]);
+        if ($validator->fails()) {
+            $this->sendResponse("Missing Field",$validator->errors(),Response::HTTP_UNPROCESSABLE_ENTITY,false);
+        }
+
+        try {
+            $data = Wedding::create($validator->validated());
+            return $this->sendResponse('Success Create',$validator->validated(),Response::HTTP_CREATED);
+        } catch (\Throwable $th) {
+            return $this->sendError($th->getMessage());
+        }
     }
 
     /**
@@ -61,7 +75,7 @@ class WeddingController extends Controller
      */
     public function edit(Wedding $wedding)
     {
-        //
+
     }
 
     /**
@@ -71,9 +85,29 @@ class WeddingController extends Controller
      * @param  \App\Models\Wedding  $wedding
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Wedding $wedding)
+    public function update(Request $request, string $id)
     {
-        //
+
+        $plan = Wedding::find($id);
+        if(!$plan){
+            $this->sendError("Data Not Found",Response::HTTP_NOT_FOUND);
+        }
+        $validator = Validator::make($request->all(),[
+            'location' => 'required',
+            'date' => 'required',
+            'total_budget' => 'required',
+            'user_id' => 'required'
+        ]);
+        if ($validator->fails()) {
+            $this->sendResponse("Missing Field",$validator->errors(),Response::HTTP_UNPROCESSABLE_ENTITY,false);
+        }
+
+        try {
+            $data = $plan->update($validator->validated());
+            return $this->sendResponse('Success Update',$validator->validated(),Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            return $this->sendError($th->getMessage());
+        }
     }
 
     /**
@@ -82,8 +116,18 @@ class WeddingController extends Controller
      * @param  \App\Models\Wedding  $wedding
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Wedding $wedding)
+    public function destroy(string $id)
     {
-        //
+
+        $plan = Wedding::find($id);
+        if(!$plan){
+            $this->sendError("Data Not Found",Response::HTTP_NOT_FOUND);
+        }
+        try {
+            $data = $plan->delete();
+            return $this->sendResponse('Success Delete',$data,Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            return $this->sendError($th->getMessage());
+        }
     }
 }

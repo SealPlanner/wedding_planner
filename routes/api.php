@@ -31,6 +31,11 @@ Route::group(['middleware' => 'api'], function () {
         Route::get('', [UserController::class, 'show']);
         Route::put('update', [UserController::class, 'update']);
     });
+    Route::group(['prefix' => 'wedding'],function ()
+    {
+        Route::get('/getWedding', [WeddingController::class, 'index']);
+        Route::post('/savePlanner',[WeddingController::class, 'store']);
+        Route::post('/updatePlan/{id}',[WeddingController::class, 'update']);
+        Route::post('/deletePlan/{id}',[WeddingController::class, 'destroy']);
+    });
 });
-
-Route::get('/getWedding', [WeddingController::class, 'index']);

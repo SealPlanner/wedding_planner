@@ -9,7 +9,7 @@ class Wedding extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['location','date','total_budget','user_id'];
 
     public function user()
     {
