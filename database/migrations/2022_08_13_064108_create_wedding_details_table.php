@@ -15,19 +15,18 @@ class CreateWeddingDetailsTable extends Migration
     {
         Schema::create('wedding_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('wedding_id')->constrained('weddings');
-            $table->string('health_beauty');
-            $table->string('flower_decor');
-            $table->string('invitation');
-            $table->string('attire');
-            $table->string('music');
-            $table->string('ceremony');
-            $table->string('jewelry');
-            $table->string('photo_video');
-            $table->string('catering');
-            $table->string('transportation');
-            $table->string('venue');
-            $table->string('souvenir');
+            $table->double('health_beauty')->default(0);
+            $table->double('flower_decor')->default(0);
+            $table->double('invitation')->default(0);
+            $table->double('attire')->default(0);
+            $table->double('music')->default(0);
+            $table->double('ceremony')->default(0);
+            $table->double('jewelry')->default(0);
+            $table->double('photo_video')->default(0);
+            $table->double('catering')->default(0);
+            $table->double('transportation')->default(0);
+            $table->double('venue')->default(0);
+            $table->double('souvenir')->default(0);
             $table->unsignedBigInteger('wedding_id');
             $table->foreign('wedding_id')->references('id')->on('weddings');
             $table->timestamps();
