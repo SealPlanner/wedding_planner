@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "6bca920c-cfb3-45a9-825a-20ce1d6fce31",
+		"name": "Seal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4629506"
+	},
+	"item": [
+		{
+			"name": "Get Planner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/wedding/getPlanner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wedding",
+						"getPlanner"
+					]
+				},
+				"description": "Mengambil Seluruh Data"
+			},
+			"response": [
+				{
+					"name": "Get Planner",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/wedding/getPlanner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wedding",
+								"getPlanner"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Aug 2022 12:30:00 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Aug 2022 12:30:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.19"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": 2,\n            \"location\": \"Pacets\",\n            \"date\": \"2020-11-19\",\n            \"total_budget\": 500000,\n            \"user_id\": 1,\n            \"created_at\": \"2022-08-15T12:28:45.000000Z\",\n            \"updated_at\": \"2022-08-15T12:29:55.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Plan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "location",
+							"value": "Pacet",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2020/11/19",
+							"type": "text"
+						},
+						{
+							"key": "total_budget",
+							"value": "500000",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/wedding/savePlanner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wedding",
+						"savePlanner"
+					]
+				},
+				"description": "Saat Menambahkan Plan Harus Ada User yang sudah terdaftar jika tidak maka akan error"
+			},
+			"response": [
+				{
+					"name": "Add Plan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "location",
+									"value": "Pacet",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2020/11/19",
+									"type": "text"
+								},
+								{
+									"key": "total_budget",
+									"value": "500000",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/wedding/savePlanner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wedding",
+								"savePlanner"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Aug 2022 12:28:45 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Aug 2022 12:28:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.19"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Success Create\",\n    \"data\": {\n        \"location\": \"Pacet\",\n        \"date\": \"2020/11/19\",\n        \"total_budget\": \"500000\",\n        \"user_id\": \"1\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Planner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "location",
+							"value": "Pacets",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2020/11/19",
+							"type": "text"
+						},
+						{
+							"key": "total_budget",
+							"value": "500000",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/wedding/updatePlan/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wedding",
+						"updatePlan",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Firman",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "firmanedam19@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "aku1233",
+							"type": "text"
+						},
+						{
+							"key": "password_confirm",
+							"value": "aku1233",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Detail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"wedding_id\": 2,\r\n    \"health_beauty\": 5000,\r\n    \"flower_decor\": 5000,\r\n    \"invitation\": 5000,\r\n    \"attire\": 5000,\r\n    \"music\": 5000,\r\n    \"ceremony\": 5000,\r\n    \"jewelry\": 5000,\r\n    \"photo_video\": 5000,\r\n    \"catering\": 5000,\r\n    \"transportation\": 5000,\r\n    \"venue\": 5000,\r\n    \"souvenir\": 5000\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"description": "Wedding Id bisa didapat dari data plan yang sudah ditambahkan sebelumnya"
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Planner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/wedding/getPlanner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wedding",
+						"getPlanner"
+					]
+				},
+				"description": "Parameter nya adalah Dari data Plan Master"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Detail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"wedding_id\": 2,\r\n    \"health_beauty\": 5000,\r\n    \"flower_decor\": 5000,\r\n    \"invitation\": 5000,\r\n    \"attire\": 5000,\r\n    \"music\": 5000,\r\n    \"ceremony\": 5000,\r\n    \"jewelry\": 5000,\r\n    \"photo_video\": 5000,\r\n    \"catering\": 5000,\r\n    \"transportation\": 5000,\r\n    \"venue\": 5000,\r\n    \"souvenir\": 5000\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/wedding/saveDetail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wedding",
+						"saveDetail"
+					]
+				},
+				"description": "Untuk Parameter di update adalah data dari detail_id"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/wedding/deletePlan/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wedding",
+						"deletePlan",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
