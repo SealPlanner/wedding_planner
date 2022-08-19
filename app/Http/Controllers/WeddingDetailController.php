@@ -38,7 +38,7 @@ class WeddingDetailController extends Controller
      */
     public function store(Request $request)
     {
-        $wedding = Wedding::find($request->id);
+        $wedding = Wedding::find($request->wedding_id);
         if(!$wedding){
             return $this->sendError('Plan Not Found',Response::HTTP_NOT_FOUND);
         }
